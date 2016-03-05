@@ -40,6 +40,12 @@ module.exports = function(grunt) {
                 cwd: paths.src + 'css',
                 src: 'main.css',
                 dest: paths.build + 'css'
+            },
+            mocks: {
+                expand: true,
+                cwd: paths.src + 'mocks',
+                src: '**/*.json',
+                dest: paths.build + 'mocks'
             }
         },
 
@@ -48,6 +54,7 @@ module.exports = function(grunt) {
                 entry: [
                     paths.bower + 'angular/angular.js',
                     paths.bower + 'angular-ui-router/release/angular-ui-router.js',
+                    paths.bower + 'angular-resource/angular-resource.js',
                     paths.src + '/js/modules/kpnProducts/index.js',
                     paths.src + '/js/index.js'
                 ],
@@ -92,6 +99,10 @@ module.exports = function(grunt) {
             js: {
                 files: [paths.src + 'js/**/*.js', paths.src + 'js/**/*.html'],
                 tasks: ['webpack']
+            },
+            mocks: {
+                files: [paths.src + 'mocks/**/*.json'],
+                tasks: ['copy:mocks']
             }
         }
     });
