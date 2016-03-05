@@ -2,13 +2,14 @@
     "id": 0,
     "name": "Apple iPhone 6s 64GB Zilver",
     "images": [
-        "img/img01.jpg",
-        "img/img02.jpg",
-        "img/img03.jpg"
+        "/img/img01.png",
+        "/img/img02.png",
+        "/img/img03.png"
     ],
     "price": 729,
     "subscriptions": [
         {
+            "id": 0,
             "name": "Basis Mobiel",
             "volume": "150 min or sms",
             "data": 500,
@@ -16,26 +17,29 @@
             "price": 44,
             "discount": 10
         }, {
-           "name": "Lorem ipsum",
-           "volume": "150 min or sms",
-           "data": 335,
-           "deviceDiscount": 120,
-           "price": 20,
-           "discount": 5 
+            "id": 1,
+            "name": "Lorem ipsum",
+            "volume": "150 min or sms",
+            "data": 335,
+            "deviceDiscount": 120,
+            "price": 20,
+            "discount": 5 
         }, {
-           "name": "Consectetur adipisicing",
-           "volume": "Unlimited",
-           "data": 1,
-           "deviceDiscount": 300,
-           "price": 55,
-           "discount": 15
+            "id": 2,
+            "name": "Consectetur adipisicing",
+            "volume": "Unlimited",
+            "data": 1,
+            "deviceDiscount": 300,
+            "price": 55,
+            "discount": 15
         }, {
-           "name": "Aspernatur incidunt",
-           "volume": "Unlimited",
-           "data": 10,
-           "deviceDiscount": 190,
-           "price": 34,
-           "discount": 8
+            "id": 3,
+            "name": "Aspernatur incidunt",
+            "volume": "Unlimited",
+            "data": 10,
+            "deviceDiscount": 190,
+            "price": 34,
+            "discount": 8
         }
     ]
 }

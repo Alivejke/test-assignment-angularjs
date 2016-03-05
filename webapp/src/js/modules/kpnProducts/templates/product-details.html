@@ -13,7 +13,11 @@
         <th></th>
     </thead>
     <tbody>
-        <tr data-ng-repeat="subscription in product.subscriptions track by $index">
+        <tr data-ng-repeat="subscription in product.subscriptions track by $index"
+            data-ng-click="setSelectedSubscription(subscription)"
+            data-ng-class="{
+                'active': subscription.id === selectedSubscription.id
+            }">
             <td>
                 <span class=""></span>
             </td>
@@ -36,3 +40,63 @@
         </tr>
     </tbody>
 </table>
+
+<div>
+    <div>
+        <img data-ng-src="{{selectedImage}}" alt="">
+        <ul data-ng-class="{
+                'active': image === selectedImage
+            }">
+            <li data-ng-repeat="image in product.images"
+                data-ng-click="setSelectedImage(image)">
+                <img data-ng-src="{{image}}" alt="">
+            </li>
+        </ul>
+        <div>
+            Phone
+            € {{subscription.deviceFinalPrice}}
+        </div>
+    </div>
+    <form action="">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Total per month</td>
+                    <td>€ {{selectedSubscription.finalPrice}}</td>
+                </tr>
+                <tr>
+                    <td>Total one off</td>
+                    <td>€ {{selectedSubscription.deviceFinalPrice}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button data-ng-submit="alert('Buy')">Buy</button>
+    </form>
+    <div>
+        <table>
+            <caption>Monthly costs</caption>
+            <tbody>
+                <tr>
+                    <td>{{selectedSubscription.name}}</td>
+                    <td>€ {{selectedSubscription.price}}</td>
+                </tr>
+                <tr>
+                    <td>Discount as long as your subscription runs</td>
+                    <td>€ {{selectedSubscription.discount}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <caption>One-off</caption>
+            <tbody>
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>€ {{selectedSubscription.price}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Original price € {{product.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

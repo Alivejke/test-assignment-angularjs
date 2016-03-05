@@ -1,7 +1,7 @@
 var ProductService = require('./src/services/product/index.js');
 
 var internetCapacityUnitsFilter = require('./src/filters/internetCapacityUnits/index.js');
-console.log(internetCapacityUnitsFilter);
+
 var config = require('./src/ngConfig.js');
 
 angular.module('kpnApp', [
