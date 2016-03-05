@@ -1,1 +1,38 @@
 <h1>product details</h1>
+
+<h2>{{product.name}}</h2>
+
+<table>
+    <caption>Select subscription</caption>
+    <thead>
+        <th colspan="2">Name</th>
+        <th>Minutes/sms</th>
+        <th>Internet</th>
+        <th>Device price</th>
+        <th>Costs / Month</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="subscription in product.subscriptions track by $index">
+            <td>
+                <span class=""></span>
+            </td>
+            <td>
+                {{subscription.name}}
+            </td>
+            <td>
+                {{subscription.volume}}
+            </td>
+            <td>
+                {{subscription.data | internetCapacityUnits}}
+            </td>
+            <td>
+                € {{subscription.deviceFinalPrice}}
+            </td>
+            <td>
+                € {{subscription.price}}
+                € {{subscription.finalPrice}}
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,5 +1,5 @@
 function ProductsListController ($scope, Product) {
-    Product.query().$promise.then(function(products) {
+    Product.query().$promise.then(function (products) {
         $scope.products = products;
     });
 }

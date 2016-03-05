@@ -54,6 +54,7 @@ module.exports = function(grunt) {
                 entry: [
                     paths.bower + 'angular/angular.js',
                     paths.bower + 'angular-ui-router/release/angular-ui-router.js',
+                    paths.bower + 'angular-route/angular-route.js',
                     paths.bower + 'angular-resource/angular-resource.js',
                     paths.src + '/js/modules/kpnProducts/index.js',
                     paths.src + '/js/index.js'
