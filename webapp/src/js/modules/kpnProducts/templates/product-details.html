@@ -1,102 +1,115 @@
-<h1>product details</h1>
+<div class="product-details">
+    <h1 class="page-title">Product details</h1>
 
-<h2>{{product.name}}</h2>
+    <div class="product-details__info">
+        <h2 class="block-title">{{product.name}}</h2>
 
-<table>
-    <caption>Select subscription</caption>
-    <thead>
-        <th colspan="2">Name</th>
-        <th>Minutes/sms</th>
-        <th>Internet</th>
-        <th>Device price</th>
-        <th>Costs / Month</th>
-        <th></th>
-    </thead>
-    <tbody>
-        <tr data-ng-repeat="subscription in product.subscriptions track by $index"
-            data-ng-click="setSelectedSubscription(subscription)"
-            data-ng-class="{
-                'active': subscription.id === selectedSubscription.id
-            }">
-            <td>
-                <span class=""></span>
-            </td>
-            <td>
-                {{subscription.name}}
-            </td>
-            <td>
-                {{subscription.volume}}
-            </td>
-            <td>
-                {{subscription.data | internetCapacityUnits}}
-            </td>
-            <td>
-                € {{subscription.deviceFinalPrice}}
-            </td>
-            <td>
-                € {{subscription.price}}
-                € {{subscription.finalPrice}}
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-<div>
-    <div>
-        <img data-ng-src="{{selectedImage}}" alt="">
-        <ul data-ng-class="{
-                'active': image === selectedImage
-            }">
-            <li data-ng-repeat="image in product.images"
-                data-ng-click="setSelectedImage(image)">
-                <img data-ng-src="{{image}}" alt="">
-            </li>
-        </ul>
-        <div>
-            Phone
-            € {{subscription.deviceFinalPrice}}
-        </div>
+        <table class="product-details__subscriptions-table">
+            <caption class="product-details__subscriptions-table-title">Select subscription</caption>
+            <thead>
+                <th colspan="2" class="product-details__subscriptions-table-cell">Name</th>
+                <th class="product-details__subscriptions-table-cell">Minutes/sms</th>
+                <th class="product-details__subscriptions-table-cell product-details__subscriptions-table-cell_right">Internet</th>
+                <th class="product-details__subscriptions-table-cell product-details__subscriptions-table-cell_right">Device price</th>
+                <th class="product-details__subscriptions-table-cell product-details__subscriptions-table-cell_right">Costs / Month</th>
+            </thead>
+            <tbody>
+                <tr class="product-details__subscriptions-table-row"
+                    data-ng-repeat="subscription in product.subscriptions track by $index"
+                    data-ng-click="setSelectedSubscription(subscription)"
+                    data-ng-class="{
+                        'product-details__subscriptions-table-row_active': subscription.id === selectedSubscription.id
+                    }">
+                    <td class="product-details__subscriptions-table-cell">
+                        <span class="product-details__subscriptions-item-radio"></span>
+                    </td>
+                    <td class="product-details__subscriptions-table-cell">
+                        {{subscription.name}}
+                    </td>
+                    <td class="product-details__subscriptions-table-cell">
+                        {{subscription.volume}}
+                    </td>
+                    <td class="product-details__subscriptions-table-cell product-details__subscriptions-table-cell_right">
+                        {{subscription.data | internetCapacityUnits}}
+                    </td>
+                    <td class="product-details__subscriptions-table-cell product-details__subscriptions-table-cell_right">
+                        € {{subscription.deviceFinalPrice}}
+                    </td>
+                    <td class="product-details__subscriptions-table-cell product-details__subscriptions-table-cell_right">
+                        <span class="price-outdated">€ {{subscription.price}}</span>
+                        <span class="price-accent">€ {{subscription.finalPrice}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <form action="">
-        <table>
-            <tbody>
-                <tr>
-                    <td>Total per month</td>
-                    <td>€ {{selectedSubscription.finalPrice}}</td>
-                </tr>
-                <tr>
-                    <td>Total one off</td>
-                    <td>€ {{selectedSubscription.deviceFinalPrice}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <button data-ng-submit="alert('Buy')">Buy</button>
-    </form>
-    <div>
-        <table>
-            <caption>Monthly costs</caption>
-            <tbody>
-                <tr>
-                    <td>{{selectedSubscription.name}}</td>
-                    <td>€ {{selectedSubscription.price}}</td>
-                </tr>
-                <tr>
-                    <td>Discount as long as your subscription runs</td>
-                    <td>€ {{selectedSubscription.discount}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <table>
-            <caption>One-off</caption>
-            <tbody>
-                <tr>
-                    <td>{{product.name}}</td>
-                    <td>€ {{selectedSubscription.price}}</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Original price € {{product.price}}</td>
-                </tr>
-            </tbody>
-        </table>
+
+    <div class="product-details__selected-subscription">
+        <div class="selected-subscription__image">
+            <img class="selected-subscription__image_selected"
+                 data-ng-src="{{selectedImage}}" alt="">
+            <ul class="selected-subscription__images-list"
+                data-ng-class="{
+                    'active': image === selectedImage
+                }">
+                <li class="selected-subscription__images-list-item"
+                    data-ng-repeat="image in product.images"
+                    data-ng-click="setSelectedImage(image)">
+                    <img class="selected-subscription__images-list-item-image"
+                         data-ng-src="{{image}}" alt="">
+                </li>
+            </ul>
+            <div class="selected-subscription__image-price">
+                Phone
+                € {{selectedSubscription.deviceFinalPrice}}
+            </div>
+        </div>
+        <form action="" class="selected-subscription__summary">
+            <table class="selected-subscription__summary-table">
+                <tbody>
+                    <tr>
+                        <td class="selected-subscription__summary-table-cell">Total per month</td>
+                        <td class="selected-subscription__summary-table-cell selected-subscription__summary-table-cell_right">€ {{selectedSubscription.finalPrice}}</td>
+                    </tr>
+                    <tr>
+                        <td class="selected-subscription__summary-table-cell">Total one off</td>
+                        <td class="selected-subscription__summary-table-cell selected-subscription__summary-table-cell_right">€ {{selectedSubscription.deviceFinalPrice}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="selected-subscription__summary-buy"
+                data-ng-submit="alert('Buy')">Buy</button>
+        </form>
+        <div class="selected-subscription__details">
+            <table class="selected-subscription__details-table">
+                <caption class="selected-subscription__details-table-title">Monthly costs</caption>
+                <tbody>
+                    <tr>
+                        <td class="selected-subscription__details-table-cell selected-subscription__details-table-cell_title">{{selectedSubscription.name}}</td>
+                        <td class="selected-subscription__details-table-cell selected-subscription__details-table-cell_right">€ {{selectedSubscription.price}}</td>
+                    </tr>
+                    <tr>
+                        <td class="selected-subscription__details-table-cell selected-subscription__details-table-cell_title">Discount as long as your subscription runs</td>
+                        <td class="selected-subscription__details-table-cell selected-subscription__details-table-cell_right">
+                            <span class="price-accent">- € {{selectedSubscription.discount}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="selected-subscription__details-table">
+                <caption class="selected-subscription__details-table-title">One-off</caption>
+                <tbody>
+                    <tr>
+                        <td class="selected-subscription__details-table-cell selected-subscription__details-table-cell_title">{{product.name}}</td>
+                        <td class="selected-subscription__details-table-cell selected-subscription__details-table-cell_right">
+                            <span class="price-accent">€ {{selectedSubscription.deviceFinalPrice}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="selected-subscription__details-table-cell" colspan="2">Original price € {{product.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
