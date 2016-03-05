@@ -1,5 +1,4 @@
 function ProductsListController ($scope) {
-    
 }
 
 ProductsListController.$inject = ['$scope'];

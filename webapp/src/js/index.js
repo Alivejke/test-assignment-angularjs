@@ -10,11 +10,11 @@ angular.module('kpnApp', [
 
         $stateProvider
             .state('products-list', {
-                url: 'products',
-                template: '<div data-kpn-products-list></div>'
+                url: '/products',
+                template: '<div data-kpn-products-list>123</div>'
             })
             .state('product-details', {
-                url: 'products/:id',
+                url: '/products/:id',
                 template: '<div data-kpn-product-details></div>'
             })
     });

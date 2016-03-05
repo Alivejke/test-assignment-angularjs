@@ -1,10 +1,12 @@
 var controller = require('../../controllers/ProductsListController/index.js');
+var template = require('../../templates/products-list.html');
+
 
 function ProductsList () {
     return {
         restrict: 'A',
         controller: controller,
-        templateUrl: 'products-list.html'
+        template: template
     }
 }
 

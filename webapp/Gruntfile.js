@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function(grunt) {
     var paths = {
         build: './build/',
@@ -52,6 +54,14 @@ module.exports = function(grunt) {
                 output: {
                     path: paths.build + '/js',
                     filename: 'main.js'
+                },
+                module: {
+                    loaders: [
+                        { 
+                            test: /\.html$/,
+                            loader: 'html' 
+                        }
+                    ],
                 },
                 stats: {
                     colors: false,

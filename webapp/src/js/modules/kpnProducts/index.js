@@ -1,4 +1,6 @@
 var ProductsListDirective = require('./directives/productsList/index.js');
+var ProductDetailsDirective = require('./directives/productDetails/index.js');
 
 angular.module('kpnProducts', [])
-    .directive('kpnPruductsList', ProductsListDirective);
+    .directive('kpnProductsList', ProductsListDirective)
+    .directive('kpnProductDetails', ProductDetailsDirective);
